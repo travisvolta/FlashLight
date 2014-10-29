@@ -5,35 +5,6 @@
     android:background="#FFF"
     tools:context="${relativePackage}.${activityClass}" >
 
-    <ToggleButton
-        android:id="@+id/toggleButton1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:onClick="onToggleClicked"
-        android:text="FlashK" />
-
-    <Button
-        android:id="@+id/button1"
-        android:onClick="blink"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/toggleButton1"
-        android:layout_alignLeft="@+id/toggleButton1"
-        android:layout_marginBottom="66dp"
-        android:text="Blink" />
-
-    <Button
-        android:id="@+id/button2"
-        android:onClick="stringFromEditTextToBlinkConverter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/toggleButton1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="55dp"
-        android:text="Use this button with edittext" />
-
     <EditText
         android:id="@+id/editText1"
         android:inputType="textCapCharacters"
@@ -46,5 +17,25 @@
 
         <requestFocus />
     </EditText>
+
+    <SeekBar
+        android:id="@+id/seekBar1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText1"
+        android:layout_alignRight="@+id/editText1"
+        android:layout_below="@+id/editText1"
+        android:layout_marginTop="28dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/seekBar1"
+        android:layout_marginRight="24dp"
+        android:layout_marginTop="34dp"
+        android:onClick="stringFromEditTextToBlinkConverter"
+        android:text="Transmit code" />
 
 </RelativeLayout>

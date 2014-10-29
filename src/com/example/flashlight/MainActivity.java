@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.SeekBar;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
@@ -20,14 +21,16 @@ public class MainActivity extends Activity {
 	String wholeStringIn0and1 = "";
 	String thisLetterIn0and1 = "";
 	ToggleButton tb;
+	SeekBar sb;
+	Button button2;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		Button button2 = (Button)findViewById(R.id.button2);
+		button2 = (Button)findViewById(R.id.button2);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		tb = (ToggleButton) findViewById(R.id.toggleButton1);
 		cam = Camera.open();
+		sb = (SeekBar)findViewById(R.id.seekBar1);
 	}
 
 	@Override
@@ -71,29 +74,7 @@ public class MainActivity extends Activity {
 		}
 	}
 
-	public void blink (View v) {
-		long timestamp1 = System.currentTimeMillis();
-		for (int i = 10; i > 0; i--) {
-			switchOn(v);
-			try {
-				Thread.sleep(0);
-			} catch (InterruptedException e) {
-				Toast.makeText(this, "got interrupted off", Toast.LENGTH_SHORT)
-						.show();
-			}
-			switchOff(v);
-			try {
-				Thread.sleep(10);
-			} catch (InterruptedException e) {
-				Toast.makeText(this, "got interrupted off", Toast.LENGTH_SHORT)
-						.show();
-			}
-		}
-		long timestamp2 = System.currentTimeMillis();
-		long delta = timestamp2 - timestamp1;
-		String s = String.valueOf(delta);
-		Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
-	}
+
 
 	public void stringFromEditTextToBlinkConverter(View v) {
 		// define our EditText element
@@ -243,11 +224,6 @@ public class MainActivity extends Activity {
 			Log.v("myLog", thisLetterIn0and1+" this letter in 1 and 0");
 			Log.v("myLog", wholeStringIn0and1+"whole string in 0 and 1");
 			
-			String s1 = "s1";
-			String s2 = s1;
-			s2 += "222";
-			s1 += "111";
-			String s3 = "s3";
 		}
 	}
 	
